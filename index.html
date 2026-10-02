@@ -2,7 +2,9 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#0b1928">
+  <meta name="description" content="MediPredict – Smart Medical Condition Prediction & Consultation System in Chennai. Understand symptoms and book specialist consultations.">
   <title>MediPredict – Smart Medical Condition Prediction & Consultation System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,8 +13,11 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Mobile Sidebar Backdrop Overlay -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
   <div class="app-container">
-    <!-- Left Navigation Sidebar -->
+    <!-- Left Navigation Sidebar (Desktop & Mobile Drawer) -->
     <aside class="app-sidebar" id="appSidebar">
       <div class="sidebar-header">
         <div class="sidebar-brand" id="brandLogo">
@@ -22,9 +27,12 @@
             <span class="brand-slogan">Understand Your Symptoms. Take the Right Next Step.</span>
           </div>
         </div>
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Navigation Menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
 
-      <div class="sidebar-section-title" id="sidebarRoleTitle">PATIENT PORTAL...</div>
+      <div class="sidebar-section-title" id="sidebarRoleTitle">PATIENT PORTAL</div>
 
       <nav class="sidebar-nav" id="sidebarNav">
         <!-- Injected dynamically by app.js -->
@@ -33,7 +41,7 @@
       <!-- Bottom Disclaimer Card in Sidebar -->
       <div class="sidebar-disclaimer-box">
         <div class="sidebar-disclaimer-title">
-          <i class="fa-solid fa-square-info"></i> Medical Disclaimer
+          <i class="fa-solid fa-shield-halved"></i> Medical Disclaimer
         </div>
         <p class="sidebar-disclaimer-text">
           Predictions are for informational purposes only. Consult a doctor for medical evaluation.
@@ -42,66 +50,133 @@
     </aside>
 
     <!-- Main Viewport Area -->
-    <div class="app-main">
+    <div class="app-main" id="appMainContainer">
       <!-- Top Navbar -->
       <header class="top-navbar">
-        <div class="demo-dropdown">
-          <button class="demo-btn" id="demoTriggerBtn">
-            <i class="fa-solid fa-bolt"></i> Quick Demo
+        <div class="top-nav-left">
+          <button class="mobile-menu-toggle" id="mobileMenuToggleBtn" aria-label="Toggle Navigation Drawer">
+            <i class="fa-solid fa-bars"></i>
           </button>
-          <div class="demo-menu" id="demoMenu">
-            <button class="demo-item" data-login="patient@medipredict.com"><strong>Ramesh Kumar</strong> (Patient)</button>
-            <button class="demo-item" data-login="ananya.subramanian@gmail.com"><strong>Ananya Subramanian</strong> (Patient)</button>
-            <button class="demo-item" data-login="dr.radhika@kauveryhospital.com"><strong>Dr. Radhika Sundaram, MD</strong> (Kauvery)</button>
-            <button class="demo-item" data-login="dr.senthil@apollohospitals.com"><strong>Dr. K. Senthil Nathan, MD</strong> (Apollo)</button>
-            <button class="demo-item" data-login="dr.balasubramanian@miot.com"><strong>Dr. V. Balasubramanian, MD</strong> (MIOT)</button>
-            <button class="demo-item" data-login="dr.anitha@gleneagles.com"><strong>Dr. Anitha Raghavan, MD</strong> (Gleneagles)</button>
-            <button class="demo-item" data-login="dr.venkatesh@mgmhealthcare.com"><strong>Dr. M. S. Venkatesh, MD</strong> (MGM)</button>
+          <div class="mobile-nav-brand" id="mobileNavBrand">
+            <div class="brand-plus-box-sm">+</div>
+            <span class="brand-name-sm">MediPredict</span>
           </div>
         </div>
 
-        <button id="themeToggleBtn" style="background:none; border:none; cursor:pointer; color:var(--text-secondary); font-size:1.1rem;" title="Toggle Dark/Light Mode">
-          <i class="fa-solid fa-moon"></i>
-        </button>
+        <div class="top-nav-right">
+          <div class="demo-dropdown">
+            <button class="demo-btn" id="demoTriggerBtn" title="Test with pre-configured demo profiles">
+              <i class="fa-solid fa-bolt"></i> <span class="demo-btn-text">Quick Demo</span>
+            </button>
+            <div class="demo-menu" id="demoMenu">
+              <div class="demo-menu-header">Select Demo User</div>
+              <button class="demo-item" data-login="patient@medipredict.com">
+                <i class="fa-solid fa-user"></i>
+                <div>
+                  <strong>Ramesh Kumar</strong>
+                  <span>Patient Profile (Chennai)</span>
+                </div>
+              </button>
+              <button class="demo-item" data-login="ananya.subramanian@gmail.com">
+                <i class="fa-solid fa-user"></i>
+                <div>
+                  <strong>Ananya Subramanian</strong>
+                  <span>Patient Profile</span>
+                </div>
+              </button>
+              <div class="demo-menu-divider"></div>
+              <button class="demo-item" data-login="dr.radhika@kauveryhospital.com">
+                <i class="fa-solid fa-user-doctor"></i>
+                <div>
+                  <strong>Dr. Radhika Sundaram, MD</strong>
+                  <span>General Physician • Kauvery</span>
+                </div>
+              </button>
+              <button class="demo-item" data-login="dr.senthil@apollohospitals.com">
+                <i class="fa-solid fa-user-doctor"></i>
+                <div>
+                  <strong>Dr. K. Senthil Nathan, MD</strong>
+                  <span>Neurologist • Apollo</span>
+                </div>
+              </button>
+              <button class="demo-item" data-login="dr.balasubramanian@miot.com">
+                <i class="fa-solid fa-user-doctor"></i>
+                <div>
+                  <strong>Dr. V. Balasubramanian, MD</strong>
+                  <span>Pulmonologist • MIOT</span>
+                </div>
+              </button>
+              <button class="demo-item" data-login="dr.anitha@gleneagles.com">
+                <i class="fa-solid fa-user-doctor"></i>
+                <div>
+                  <strong>Dr. Anitha Raghavan, MD</strong>
+                  <span>Gastroenterologist • Gleneagles</span>
+                </div>
+              </button>
+              <button class="demo-item" data-login="dr.venkatesh@mgmhealthcare.com">
+                <i class="fa-solid fa-user-doctor"></i>
+                <div>
+                  <strong>Dr. M. S. Venkatesh, MD</strong>
+                  <span>Cardiologist • MGM</span>
+                </div>
+              </button>
+            </div>
+          </div>
 
-        <div class="top-user-info" id="topUserInfo">
-          <!-- Injected dynamically -->
+          <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <div class="top-user-info" id="topUserInfo">
+            <!-- Injected dynamically -->
+          </div>
         </div>
       </header>
 
       <!-- Main Content View -->
       <main class="content-viewport" id="appMain">
-        <!-- Rendered by app.js -->
+        <!-- Rendered dynamically by app.js -->
       </main>
 
       <!-- Bottom Medical Notice Banner -->
-      <div style="padding: 0 2.25rem 2rem;">
+      <div class="notice-wrapper">
         <div class="bottom-notice-banner">
-          <strong>Medical Notice:</strong> MediPredict is an educational tool and does not provide formal medical diagnoses. Always consult a licensed medical physician for accurate assessment and treatment prescriptions.
+          <i class="fa-solid fa-circle-info notice-icon"></i>
+          <div>
+            <strong>Medical Notice:</strong> MediPredict is an educational tool and does not provide formal medical diagnoses. Always consult a licensed medical physician for accurate assessment and treatment prescriptions.
+          </div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Mobile Bottom Navigation Bar (Dynamic Tab Bar for Phone Viewports) -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav">
+    <!-- Injected dynamically based on Auth Role -->
+  </nav>
+
   <!-- Booking Modal -->
   <div class="modal-backdrop" id="bookingModal">
     <div class="modal-card">
       <div class="modal-header">
-        <span>Schedule Doctor Consultation</span>
-        <button id="closeBookingModal" style="background:none; border:none; font-size:1.4rem; cursor:pointer;">&times;</button>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <i class="fa-solid fa-calendar-plus" style="color:var(--teal-primary);"></i>
+          <span>Schedule Doctor Consultation</span>
+        </div>
+        <button id="closeBookingModal" class="modal-close-btn" aria-label="Close dialog">&times;</button>
       </div>
       <form id="appointmentBookingForm" class="modal-body">
         <div class="form-group">
-          <label>Selected Physician</label>
+          <label for="bookDoctorSelect">Selected Physician</label>
           <select id="bookDoctorSelect" class="form-select" required></select>
         </div>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+        <div class="form-row-2col">
           <div class="form-group">
-            <label>Appointment Date</label>
+            <label for="bookDateInput">Appointment Date</label>
             <input type="date" id="bookDateInput" class="form-input" required>
           </div>
           <div class="form-group">
-            <label>Time Slot</label>
+            <label for="bookTimeSelect">Time Slot</label>
             <select id="bookTimeSelect" class="form-select" required>
               <option value="09:00 AM">09:00 AM</option>
               <option value="09:30 AM">09:30 AM</option>
@@ -116,18 +191,20 @@
           </div>
         </div>
         <div class="form-group">
-          <label>Reason for Visit / Chief Complaints</label>
+          <label for="bookNotesInput">Reason for Visit / Chief Complaints</label>
           <textarea id="bookNotesInput" class="form-textarea" rows="3" placeholder="Describe symptoms or medical reason for consultation..." required></textarea>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-logout" id="cancelBookingBtn">Cancel</button>
-          <button type="submit" class="btn btn-teal">Confirm Booking</button>
+          <button type="button" class="btn btn-outline" id="cancelBookingBtn">Cancel</button>
+          <button type="submit" class="btn btn-teal">
+            <i class="fa-solid fa-check"></i> Confirm Booking
+          </button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Toast Container -->
+  <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Scripts -->
