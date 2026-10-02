@@ -158,20 +158,20 @@ const INITIAL_DATA = {
   ],
 
   users: [
-    // Patients
+    // Generic Sample Patients
     {
       id: 1,
-      email: "sarveshrameshkr@gmail.com",
+      email: "patient@medipredict.com",
       role: "PATIENT",
-      fullName: "sarvesh",
-      phone: "+91 99403 85123",
+      fullName: "Ramesh Kumar",
+      phone: "+91 98401 23456",
       patientProfile: {
         id: 1,
-        dob: "2002-05-15",
+        dob: "1998-05-15",
         gender: "Male",
         bloodGroup: "O+",
         medicalHistory: "No chronic illnesses. Mild seasonal allergies.",
-        emergencyContact: "Father: +91 98401 23456"
+        emergencyContact: "Family: +91 98401 98765"
       }
     },
     {
@@ -277,7 +277,7 @@ const INITIAL_DATA = {
     {
       id: 1,
       patientId: 1,
-      patientName: "sarvesh",
+      patientName: "Ramesh Kumar",
       predictedConditionId: 7,
       predictedConditionName: "Sinusitis",
       matchScore: 88.5,
@@ -293,7 +293,7 @@ const INITIAL_DATA = {
     {
       id: 1,
       patientId: 1,
-      patientName: "sarvesh",
+      patientName: "Ramesh Kumar",
       doctorId: 1,
       doctorName: "Dr. Radhika Sundaram, MD",
       doctorSpec: "General Physician",
@@ -311,8 +311,8 @@ const INITIAL_DATA = {
     {
       id: 1,
       senderId: 1,
-      receiverId: 3, // Dr. Radhika Sundaram
-      senderName: "sarvesh",
+      receiverId: 3,
+      senderName: "Ramesh Kumar",
       receiverName: "Dr. Radhika Sundaram, MD",
       content: "hello doctor i have severe fever",
       isRead: 1,
@@ -323,7 +323,7 @@ const INITIAL_DATA = {
 
 // Storage Manager
 const DB = {
-  STORAGE_KEY: "medipredict_chennai_db_v2",
+  STORAGE_KEY: "medipredict_generic_db_v3",
 
   get() {
     try {

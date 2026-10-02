@@ -1,7 +1,7 @@
 /**
  * MediPredict Web Application Controller
  * Complete Front Intro Landing Page + Register + Login + Patient/Doctor Portals
- * South Indian Chennai Healthcare Edition
+ * South Indian Chennai Healthcare Edition (Clean Generic Profiles)
  */
 
 const App = {
@@ -250,7 +250,7 @@ const App = {
   },
 
   // -------------------------------------------------------------
-  // View 0: Front Intro Landing Page (Matches LandingScreen.java)
+  // View 0: Front Intro Landing Page
   // -------------------------------------------------------------
   renderLanding(container) {
     container.innerHTML = `
@@ -372,7 +372,7 @@ const App = {
   },
 
   // -------------------------------------------------------------
-  // View 1: Register (Matches Screenshot 1 Exactly)
+  // View 1: Register (Blank Placeholders)
   // -------------------------------------------------------------
   renderRegister(container) {
     container.innerHTML = `
@@ -395,35 +395,35 @@ const App = {
 
           <div class="form-group">
             <label>Full Name</label>
-            <input type="text" id="regFullName" class="form-input" placeholder="e.g. sarvesh" value="sarvesh" required>
+            <input type="text" id="regFullName" class="form-input" placeholder="Enter your full name" required>
           </div>
 
           <div class="form-group">
             <label>Email Address</label>
-            <input type="email" id="regEmail" class="form-input" placeholder="e.g. sarveshrameshkr@gmail.com" value="sarveshrameshkr@gmail.com" required>
+            <input type="email" id="regEmail" class="form-input" placeholder="e.g. yourname@example.com" required>
           </div>
 
           <div class="form-group">
             <label>Phone Number</label>
-            <input type="tel" id="regPhone" class="form-input" placeholder="e.g. 9940385123" value="9940385123" required>
+            <input type="tel" id="regPhone" class="form-input" placeholder="e.g. +91 9876543210" required>
           </div>
 
           <div class="form-group">
             <label>Password</label>
-            <input type="password" id="regPassword" class="form-input" placeholder="Create a secure password (min 6 characters)" value="patient123" required>
+            <input type="password" id="regPassword" class="form-input" placeholder="Create a secure password (min 6 characters)" required>
           </div>
 
           <!-- Patient Fields -->
           <div id="patientSpecificFields">
             <div class="form-group">
               <label>Date of Birth (YYYY-MM-DD)</label>
-              <input type="text" id="regDob" class="form-input" placeholder="YYYY-MM-DD (e.g. 2002-05-15)" value="2002-05-15">
+              <input type="text" id="regDob" class="form-input" placeholder="YYYY-MM-DD (e.g. 2000-01-15)">
             </div>
 
             <div class="form-group">
               <label>Gender</label>
               <select id="regGender" class="form-select">
-                <option value="Male" selected>Male</option>
+                <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
               </select>
@@ -446,12 +446,12 @@ const App = {
 
             <div class="form-group">
               <label>Medical History / Known Allergies</label>
-              <input type="text" id="regHistory" class="form-input" placeholder="Optional: e.g. Seasonal allergies, asthma, none" value="Seasonal allergies">
+              <input type="text" id="regHistory" class="form-input" placeholder="Optional: e.g. Seasonal allergies, asthma, none">
             </div>
 
             <div class="form-group">
               <label>Emergency Contact</label>
-              <input type="text" id="regEmergency" class="form-input" placeholder="e.g. Father: +91 98401 23456" value="Father: +91 98401 23456">
+              <input type="text" id="regEmergency" class="form-input" placeholder="e.g. +91 98401 23456">
             </div>
           </div>
 
@@ -468,11 +468,11 @@ const App = {
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
               <div class="form-group">
                 <label>Experience (Years)</label>
-                <input type="number" id="regExp" class="form-input" value="10" min="1">
+                <input type="number" id="regExp" class="form-input" placeholder="10" min="1">
               </div>
               <div class="form-group">
                 <label>Consultation Fee (₹ INR)</label>
-                <input type="number" id="regFee" class="form-input" value="500" min="100">
+                <input type="number" id="regFee" class="form-input" placeholder="500" min="100">
               </div>
             </div>
             <div class="form-group">
@@ -555,7 +555,7 @@ const App = {
   },
 
   // -------------------------------------------------------------
-  // View 2: Login (Matches LoginScreen.java)
+  // View 2: Login (Blank Placeholders)
   // -------------------------------------------------------------
   renderLogin(container) {
     container.innerHTML = `
@@ -566,12 +566,12 @@ const App = {
         <form id="userLoginForm">
           <div class="form-group">
             <label>Email Address</label>
-            <input type="email" id="loginEmailField" class="form-input" placeholder="e.g. sarveshrameshkr@gmail.com" value="sarveshrameshkr@gmail.com" required>
+            <input type="email" id="loginEmailField" class="form-input" placeholder="e.g. patient@example.com" required>
           </div>
 
           <div class="form-group">
             <label>Password</label>
-            <input type="password" id="loginPasswordField" class="form-input" placeholder="••••••••" value="patient123" required>
+            <input type="password" id="loginPasswordField" class="form-input" placeholder="••••••••" required>
           </div>
 
           <button type="submit" class="btn btn-teal" style="width: 100%; padding: 0.75rem; margin-top: 0.5rem; font-size: 0.95rem;">
@@ -586,8 +586,8 @@ const App = {
         <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color); text-align: center;">
           <small style="color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Quick Demo Login:</small>
           <div style="display: flex; gap: 8px; justify-content: center; margin-top: 8px; flex-wrap: wrap;">
-            <button class="btn btn-white-outline btn-sm" id="quickLoginPatient">Patient (sarvesh)</button>
-            <button class="btn btn-white-outline btn-sm" id="quickLoginDoctor">Doctor (Dr. Radhika)</button>
+            <button class="btn btn-white-outline btn-sm" id="quickLoginPatient">Patient Demo</button>
+            <button class="btn btn-white-outline btn-sm" id="quickLoginDoctor">Doctor Demo (Dr. Radhika)</button>
           </div>
         </div>
       </div>
@@ -600,7 +600,7 @@ const App = {
       if (u) {
         this.setSession(u);
       } else {
-        this.showToast("Account not found. Use a demo account or register.", "error");
+        this.showToast("Account not found. Use a demo button or register.", "error");
       }
     });
 
@@ -610,7 +610,7 @@ const App = {
     });
 
     document.getElementById("quickLoginPatient").addEventListener("click", () => {
-      const u = DB.findUserByEmail("sarveshrameshkr@gmail.com");
+      const u = DB.findUserByEmail("patient@medipredict.com");
       if (u) this.setSession(u);
     });
 
@@ -621,10 +621,10 @@ const App = {
   },
 
   // -------------------------------------------------------------
-  // View 3: Patient Dashboard (Matches Screenshot 3)
+  // View 3: Patient Dashboard
   // -------------------------------------------------------------
   renderPatientDashboard(container) {
-    const user = this.currentUser || { fullName: "sarvesh" };
+    const user = this.currentUser || { fullName: "Patient" };
     const name = user.fullName.toLowerCase().replace("dr. ", "");
 
     const patId = user.patientProfile?.id || 1;
@@ -746,7 +746,7 @@ const App = {
   },
 
   // -------------------------------------------------------------
-  // View 4: Symptom Predictor (Matches Screenshot 2)
+  // View 4: Symptom Predictor
   // -------------------------------------------------------------
   renderSymptomCheck(container) {
     const allSymptoms = DB.getSymptoms();
@@ -876,7 +876,7 @@ const App = {
   },
 
   // -------------------------------------------------------------
-  // View 5: Prediction Results (Matches Screenshot 4 Exactly)
+  // View 5: Prediction Results
   // -------------------------------------------------------------
   renderPredictionResult(container, result) {
     if (!result) {
@@ -975,7 +975,7 @@ const App = {
   },
 
   // -------------------------------------------------------------
-  // View 6: Doctor Directory (Matches Screenshot 5 with Chennai Doctors)
+  // View 6: Doctor Directory (Chennai Doctors)
   // -------------------------------------------------------------
   renderDoctorDirectory(container) {
     const doctors = DB.getDoctors();
@@ -1085,12 +1085,12 @@ const App = {
   },
 
   // -------------------------------------------------------------
-  // View 7: Messaging / Chat (Matches Screenshot 3)
+  // View 7: Messaging / Chat
   // -------------------------------------------------------------
   renderChat(container, selectedDocUserId = null) {
     const doctors = DB.getDoctors();
     let currentDoc = doctors.find(d => d.id === selectedDocUserId) || doctors[0];
-    const user = this.currentUser || { id: 1, fullName: "sarvesh" };
+    const user = this.currentUser || { id: 1, fullName: "Patient" };
 
     const messages = DB.getMessages().filter(m => 
       (m.senderId === user.id && m.receiverId === currentDoc.id) ||
@@ -1341,7 +1341,7 @@ const App = {
     const doc = DB.getDoctorByDoctorId(docId);
     DB.addAppointment({
       patientId: this.currentUser?.patientProfile?.id || 1,
-      patientName: this.currentUser?.fullName || "sarvesh",
+      patientName: this.currentUser?.fullName || "Patient",
       doctorId: docId,
       doctorName: doc?.fullName || "Physician",
       doctorSpec: doc?.doctorProfile?.specialization || "General",
