@@ -1,0 +1,21 @@
+{
+  "name": "medipredict-web",
+  "version": "1.0.0",
+  "description": "MediPredict – Smart Medical Condition Prediction & Doctor Consultation System",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -s . -p 3000",
+    "start": "npx serve -s . -p 3000",
+    "build": "echo 'Ready for Vercel Static Deployment'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "healthcare",
+    "ai-prediction",
+    "doctor-consultation",
+    "symptom-checker",
+    "telehealth"
+  ],
+  "author": "Sarvesh Kumar",
+  "license": "MIT"
+}

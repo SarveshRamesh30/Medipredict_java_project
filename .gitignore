@@ -1,0 +1,20 @@
+# Compiled class files
+bin/
+target/
+*.class
+
+# IDE and OS files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Database locks / temp files
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Node modules
+node_modules/
+.vercel/

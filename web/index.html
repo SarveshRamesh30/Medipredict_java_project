@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediPredict – Smart Medical Condition Prediction & Consultation System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Left Navigation Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand" id="brandLogo">
+          <div class="brand-plus-box">+</div>
+          <div>
+            <span class="brand-name">MediPredict</span>
+            <span class="brand-slogan">Understand Your Symptoms. Take the Right Next Step.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section-title" id="sidebarRoleTitle">PATIENT PORTAL</div>
+
+      <nav class="sidebar-nav" id="sidebarNav">
+        <!-- Injected dynamically by app.js -->
+      </nav>
+
+      <!-- Bottom Disclaimer Card in Sidebar -->
+      <div class="sidebar-disclaimer-box">
+        <div class="sidebar-disclaimer-title">
+          <i class="fa-solid fa-square-info"></i> Medical Disclaimer
+        </div>
+        <p class="sidebar-disclaimer-text">
+          Predictions are for informational purposes only. Consult a doctor for medical evaluation.
+        </p>
+      </div>
+    </aside>
+
+    <!-- Main Viewport Area -->
+    <div class="app-main">
+      <!-- Top Navbar -->
+      <header class="top-navbar">
+        <div class="demo-dropdown">
+          <button class="demo-btn" id="demoTriggerBtn">
+            <i class="fa-solid fa-bolt"></i> Quick Switch
+          </button>
+          <div class="demo-menu" id="demoMenu">
+            <button class="demo-item" data-login="patient@medipredict.com"><strong>Sarvesh Kumar</strong> (Patient)</button>
+            <button class="demo-item" data-login="emma@medipredict.com"><strong>Emma Watson</strong> (Patient)</button>
+            <button class="demo-item" data-login="doctor@medipredict.com"><strong>Dr. Emily Watson, MD</strong> (Physician)</button>
+            <button class="demo-item" data-login="chen@medipredict.com"><strong>Dr. Robert Chen, MD</strong> (Neurologist)</button>
+            <button class="demo-item" data-login="sharma@medipredict.com"><strong>Dr. Priya Sharma, MD</strong> (Pulmonologist)</button>
+            <button class="demo-item" data-login="wilson@medipredict.com"><strong>Dr. James Wilson, MD</strong> (Gastro)</button>
+            <button class="demo-item" data-login="martinez@medipredict.com"><strong>Dr. Linda Martinez, MD</strong> (Cardiology)</button>
+          </div>
+        </div>
+
+        <button id="themeToggleBtn" style="background:none; border:none; cursor:pointer; color:var(--text-secondary); font-size:1.1rem;" title="Toggle Dark/Light Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <div class="top-user-info" id="topUserInfo">
+          <!-- Injected dynamically -->
+        </div>
+      </header>
+
+      <!-- Main Content View -->
+      <main class="content-viewport" id="appMain">
+        <!-- Rendered by app.js -->
+      </main>
+
+      <!-- Bottom Medical Notice Banner -->
+      <div style="padding: 0 2.25rem 2rem;">
+        <div class="bottom-notice-banner">
+          <strong>Medical Notice:</strong> MediPredict is an educational tool and does not provide formal medical diagnoses. Always consult a licensed medical physician for accurate assessment and treatment prescriptions.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Modal -->
+  <div class="modal-backdrop" id="bookingModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span>Schedule Doctor Consultation</span>
+        <button id="closeBookingModal" style="background:none; border:none; font-size:1.4rem; cursor:pointer;">&times;</button>
+      </div>
+      <form id="appointmentBookingForm" class="modal-body">
+        <div class="form-group">
+          <label>Selected Physician</label>
+          <select id="bookDoctorSelect" class="form-select" required></select>
+        </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+          <div class="form-group">
+            <label>Appointment Date</label>
+            <input type="date" id="bookDateInput" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label>Time Slot</label>
+            <select id="bookTimeSelect" class="form-select" required>
+              <option value="09:00 AM">09:00 AM</option>
+              <option value="09:30 AM">09:30 AM</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="10:30 AM">10:30 AM</option>
+              <option value="11:30 AM">11:30 AM</option>
+              <option value="02:00 PM">02:00 PM</option>
+              <option value="02:30 PM">02:30 PM</option>
+              <option value="03:30 PM">03:30 PM</option>
+              <option value="04:00 PM">04:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Reason for Visit / Chief Complaints</label>
+          <textarea id="bookNotesInput" class="form-textarea" rows="3" required></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-logout" id="cancelBookingBtn">Cancel</button>
+          <button type="submit" class="btn btn-teal">Confirm Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="prediction.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
